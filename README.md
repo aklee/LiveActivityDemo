@@ -2,9 +2,13 @@ iOS16.1开始允许开发者和灵动岛交互。引入新概念Live Activity �
 
 <h2>首先说限制：</h2>
 * LA无法访问网络、接收定位信息， 如果要更新数据，需要通过app的ActivityKit.framework 或者 接收远程推送APNs。 </br>
+
 * 数据通信的大小限制，不论是本地数据还是APNs是数据，给到LA的数据都不能超过4KB</br>
+
 * 启动灵动岛Live Activity可能会失败，因为设备有启动灵动岛的个数限制</br>
+
 * 用户不能主动设置视图动画，系统会帮你做过渡动画</br>
+
 * 除非App或用户结束LA，否则最多可以活跃8个小时。 超过8小时，系统自动结束。当LA结束时候，系统会立即将其从灵动岛中移除。  </br>
 但是，LA会保留在锁定屏幕上，直到用户将其删除或在系统将其删除之前再保留最多四个小时——以先到者为准。 因此，实时活动会在锁定屏幕上保留最多 12 小时。</br>
 
@@ -12,12 +16,12 @@ iOS16.1开始允许开发者和灵动岛交互。引入新概念Live Activity �
 
 
 <h2>授权开关：</h2>
-areActivitiesEnabled : LA是否可用
-activityEnablementUpdates：用于监听LA可用状态改变
+areActivitiesEnabled : LA是否可用</br>
+activityEnablementUpdates：用于监听LA可用状态改变</br>
 
 <h2>交互规则：</h2>
-App只能在前台启动LA。 在前后台都可以更新 或 中止LA。
-遵循用时打开，不用就关闭的原则。App退出后，如果LA还没退出可能导致crash。
+App只能在前台启动LA。 在前后台都可以更新 或 中止LA。</br>
+遵循用时打开，不用就关闭的原则。App退出后，如果LA还没退出可能导致crash。</br>
 
 
 <h2>开发者如何添加Live Activity</h2>
